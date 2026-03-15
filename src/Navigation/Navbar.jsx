@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: "About Us", path: "/about" },
     { name: "Countries", path: "/countries" },
     { name: "Universities", path: "/universities" },
+    { name: "Partner With Us", path: "/partnerwithus" },
     { name: "Book an Appointment", path: "/enquiry" },
   ]
 
@@ -61,8 +62,8 @@ export default function Navbar() {
             </button>
             {loginDropdownOpen && (
               <div className="absolute flex flex-col bg-gray-100 shadow-lg rounded-md mt-2 w-40 text-sm z-50">
-                <Link href="/login/student" className="px-4 py-2 hover:bg-gray-200" onClick={closeAllDropdowns}>Student</Link>
-                <Link href="/login/enterprise" className="px-4 py-2 hover:bg-gray-200" onClick={closeAllDropdowns}>Enterprise</Link>
+                <Link href="/login/foruniversities" className="px-4 py-2 hover:bg-gray-200" onClick={closeAllDropdowns}>For Universities</Link>
+                <Link href="/login/forpartners" className="px-4 py-2 hover:bg-gray-200" onClick={closeAllDropdowns}>For Partners</Link>
               </div>
             )}
           </div>
@@ -79,8 +80,8 @@ export default function Navbar() {
             </button>
             {registerDropdownOpen && (
               <div className="absolute flex flex-col bg-white shadow-lg rounded-md mt-2 w-40 text-sm right-0 z-50">
-                <Link href="/register/student" className="px-4 py-2 hover:bg-gray-200 text-[#04413D]" onClick={closeAllDropdowns}>Student</Link>
-                <Link href="/register/enterprise" className="px-4 py-2 hover:bg-gray-200 text-[#04413D]" onClick={closeAllDropdowns}>Enterprise</Link>
+                <Link href="/register/foruniversities" className="px-4 py-2 hover:bg-gray-200 text-[#04413D]" onClick={closeAllDropdowns}>For Universities</Link>
+                <Link href="/register/forpartners" className="px-4 py-2 hover:bg-gray-200 text-[#04413D]" onClick={closeAllDropdowns}>For Partners</Link>
               </div>
             )}
           </div>

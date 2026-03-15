@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import Link from "next/link";
-export default function EnquiryBanner() {
+export default function AboutBanner() {
   return (
     <div className="h-[70vh] relative">
       <Image
@@ -14,9 +14,9 @@ export default function EnquiryBanner() {
       <div className="absolute bg-[#04413D]/30 inset-0"></div>
       <div className="absolute flex flex-col mx-auto top-1/2 left-12 inset-0 gap-2  text-white navtext">
         <h1 className="text-5xl font-semibold tracking-tight">
-          Contact Page
+          About Page
         </h1>
-        <p className="text-xl">This is a contact page</p>
+        <p className="text-xl">This is a about page</p>
       </div>
       <div className="absolute  bottom-0 w-full h-8 flex gap-2 items-center justify-start bg-[#04413D]/50 text-white px-14 py-1">
         <h1 className="text-xl"><IoArrowBackCircleSharp/></h1>
@@ -25,7 +25,7 @@ export default function EnquiryBanner() {
         </button>
         <h1>/</h1>
         <h1 className="font-medium text-white underline underline-offset-3 ">
-          Book an Appointment
+          About Us
         </h1>
       </div>
     </div>
