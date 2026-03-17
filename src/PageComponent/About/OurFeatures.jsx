@@ -1,78 +1,105 @@
-"use client";
-import React, { useRef } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
-import Image from "next/image";
-import { RiArrowRightDoubleLine } from "react-icons/ri";
+"use client"
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaLocationArrow } from "react-icons/fa";
 
-// Import images (ensure paths match your public folder)
-import consultImg from "../../../public/consult.jpg";
-import amphloImg from "../../../public/amphlo.jpg";
+export default function OurFeatures() {
+  // 1. Define all data
+  const allFeatures = [
+    { title: "Partner Registration & Onboarding", points: ["Automated onboarding", "Real-time verification", "Quick setup"] },
+    { title: "Centralized Partner Dashboard", points: ["Unified data view", "Task management", "Custom widgets"] },
+    { title: "Communication & Collaboration Tools", points: ["Secure messaging", "Shared workspace", "Real-time editing"] },
+    { title: "Searching & Easy Access", points: ["Instant indexing", "Filter by category", "Global search"] },
+    { title: "Partner Performance Tracking", points: ["KPI monitoring", "Growth insights", "Visual trends"] },
+    { title: "Reporting & Analytics", points: ["Predictive reports", "Automated exports", "Data drill-down"] },
+    { title: "Mobile Access & User-Friendly Interface", points: ["Responsive design", "Touch-friendly", "Anywhere access"] },
+    { title: "Lead & Opportunity Management", points: ["Pipeline tracking", "Status updates", "Opportunity scoring"] },
+    { title: "Training & Resources Access", points: ["Expert video library", "Course tracking", "Certification"] },
+    { title: "Document & Contract Management", points: ["Digital signing", "Version control", "Secure storage"] },
+    { title: "Payment & Incentive Management", points: ["Payment automation", "Reward calculation", "Audit logs"] },
+    { title: "Integration with CRM and ERP System", points: ["CRM native sync", "ERP connectivity", "API access"] },
+    { title: "Feedback & Partner Satisfaction Surveys", points: ["Satisfaction surveys", "Sentiment analysis", "Improvement logs"] },
+    { title: "Event & Webinar Management", points: ["Webinar scheduling", "Attendee tracking", "Resource sharing"] },
+  ];
 
-const allFeatures = [
-  { title: "Partner Registration & Onboarding", content: "Streamlined onboarding flow for all new partners.", image: consultImg, points: ["Automated onboarding", "Real-time verification", "Quick setup"] },
-  { title: "Centralized Partner Dashboard", content: "All your data, metrics, and tasks in one view.", image: amphloImg, points: ["Unified data view", "Task management", "Custom widgets"] },
-  { title: "Communication & Collaboration Tools", content: "Integrated chat and document sharing features.", image: consultImg, points: ["Secure messaging", "Shared workspace", "Real-time editing"] },
-  { title: "Searching & Easy Access", content: "Quickly find contracts, leads, and historical data.", image: amphloImg, points: ["Instant indexing", "Filter by category", "Global search"] },
-  { title: "Partner Performance Tracking", content: "Monitor KPIs and growth metrics in real-time.", image: consultImg, points: ["KPI monitoring", "Growth insights", "Visual trends"] },
-  { title: "Reporting & Analytics", content: "Deep insights through automated reporting.", image: amphloImg, points: ["Predictive reports", "Automated exports", "Data drill-down"] },
-  { title: "Mobile Access & User-Friendly Interface", content: "Manage your partnerships on the go.", image: consultImg, points: ["Responsive design", "Touch-friendly", "Anywhere access"] },
-  { title: "Lead & Opportunity Management", content: "End-to-end opportunity tracking pipeline.", image: amphloImg, points: ["Pipeline tracking", "Status updates", "Opportunity scoring"] },
-  { title: "Training & Resources Access", content: "Access our library of expert guides and courses.", image: consultImg, points: ["Expert video library", "Course tracking", "Certification"] },
-  { title: "Document & Contract Management", content: "Digital signing and storage of legal documents.", image: amphloImg, points: ["Digital signing", "Version control", "Secure storage"] },
-  { title: "Payment & Incentive Management", content: "Automated payment and reward processing.", image: consultImg, points: ["Payment automation", "Reward calculation", "Audit logs"] },
-  { title: "Integration with CRM and ERP System", content: "Seamless sync with your existing CRM and ERP.", image: amphloImg, points: ["CRM native sync", "ERP connectivity", "API access"] },
-  { title: "Feedback & Partner Satisfaction Surveys", content: "Built-in partner satisfaction surveys.", image: consultImg, points: ["Satisfaction surveys", "Sentiment analysis", "Improvement logs"] },
-  { title: "Event & Webinar Management", content: "Easily host and track webinars or workshops.", image: amphloImg, points: ["Webinar scheduling", "Attendee tracking", "Resource sharing"] },
-];
+  // 2. State to track visible count
+  const [visibleCount, setVisibleCount] = useState(5);
 
-export default function AnimatedFeaturesTimeline() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
+  const showMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 5, allFeatures.length));
+  };
+
+  const showLess = () => {
+    setVisibleCount(5);
+  };
 
   return (
-    <main ref={containerRef} className="min-h-screen flex items-start justify-center py-12 mx-auto w-full bg-[#04413D]/20">
-      
-      <div className="w-11/12 md:w-10/12 mx-auto flex flex-col md:items-center gap-3 navtext">
-        
-        <h1 className="text-5xl font-semibold text-[#04413D] text-center">
-          Amphlo Features
+    <section className="md:py-20 py-6 h-full overflow-hidden w-11/12 flex flex-col mx-auto">
+      <div className="text-center mb-24 navtext">
+        <h1 className="text-6xl font-bold text-[#04413D] tracking-tight">
+          Our Features
         </h1>
-        
-        <p className="text-center text-sm text-gray-600 max-w-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt deserunt 
-          dolores quam repellat, molestias, officiis pariatur.
+        <p className="text-gray-700 mt-3">
+          Focus on clarity, accessibility, and professional translation to enhance engagement and comprehension
         </p>
+      </div>
 
-        <div className="space-y-18 w-full mt-12">
-          {allFeatures.map((item, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
-            >
-              <div className="w-full lg:w-1/2">
-                <h3 className="text-3xl font-bold text-[#04413D] mb-4">{item.title}</h3>
-                <p className="text-lg text-gray-600 mb-4">{item.content}</p>
-                <ul className="space-y-2">
-                  {item.points.map((p, i) => (
-                    <li key={i} className="text-gray-500 flex items-center">
-                      <span className="mr-2 text-[#04413D]"><RiArrowRightDoubleLine/></span> {p}
+      <div className="max-w-7xl mx-auto px-4 w-full">
+        <div className="flex flex-wrap justify-center  gap-y-12">
+          <AnimatePresence mode='popLayout'>
+            {allFeatures.slice(0, visibleCount).map((feature, index) => (
+              <motion.div
+                key={feature.title} 
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.4, delay: (index % 5) * 0.1 }}
+                className={`
+                  relative w-64 h-64 rounded-full flex flex-col items-center justify-center text-center p-5 
+                  shadow-xl transition-transform hover:z-10 hover:bg-[#04413D] hover:scale-110 ease-in-out duration-500
+                  -mx-4 sm:-mx-8 cursor-pointer
+                  ${index % 2 === 0 
+                    ? 'bg-[#04413D]/70 text-white mt-0' 
+                    : 'bg-[#04413D]/70 text-white mt-12 sm:mt-20'
+                  }
+                `}
+              >
+                <h3 className="font-bold text-md mb-3 leading-tight uppercase px-1">
+                  {feature.title}
+                </h3>
+
+                <ul className="space-y-2 text-start">
+                  {feature.points.map((point, pIdx) => (
+                    <li key={pIdx} className="text-[10px] sm:text-sm opacity-90 font-medium flex items-center gap-3">
+                      <span className='text-xs'> <FaLocationArrow /></span> {point}
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              <div className="w-full lg:w-1/2 relative h-80 rounded-3xl overflow-hidden shadow-2xl">
-                <Image src={item.image} alt={item.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-[#04413D]/10 hover:bg-transparent transition-all" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                <div className="absolute inset-0 rounded-full bg-linear-to-br from-white/10 to-transparent pointer-events-none" />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
-    </main>
+        <div className="flex justify-end mt-20">
+          {visibleCount < allFeatures.length ? (
+            <button 
+              onClick={showMore}
+              className='bg-[#04413D]/70 text-white px-3 py-2 rounded-2xl text-lg font-medium cursor-pointer hover:bg-[#04413D] transition-all duration-500 ease-in-out hover:scale-105 shadow-md'
+            >
+              View More
+            </button>
+          ) : (
+            <button 
+              onClick={showLess}
+              className='border-2 border-[#04413D] text-[#04413D] p-2 rounded-2xl text-md font-medium cursor-pointer hover:bg-[#04413D] hover:text-white transition-all duration-500 ease-in-out hover:scale-105 shadow-md'
+            >
+              View Less
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }

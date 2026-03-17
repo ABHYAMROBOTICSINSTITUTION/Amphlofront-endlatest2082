@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(0); // First FAQ open by default
+  const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
     {
@@ -27,7 +27,7 @@ export default function FAQ() {
   return (
     <div className="bg-linear-to-b from-[#04413D]/50 to-white min-h-full flex flex-col items-center py-16 px-6">
       
-      {/* Heading */}
+
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold text-[#04413D]">
           Frequently Asked Questions
@@ -37,7 +37,6 @@ export default function FAQ() {
         </p>
       </div>
 
-      {/* FAQ List */}
       <div className="w-full max-w-2xl space-y-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
