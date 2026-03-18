@@ -1,10 +1,40 @@
 "use client";
 
 import Image from "next/image";
-import wall from "../../../public/herosection.jpg";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { fetchData } from "@/lib/page";
 
 export default function HeroSection() {
+  const [heroData, setHeroData] = useState(null);
+
+  useEffect(() => {
+    const getHeroData = async () => {
+      try {
+        const data = await fetchData("hero-section");
+        setHeroData(data);
+      } catch (error) {
+        console.error("Error fetching hero data:", error);
+      }
+    };
+
+    getHeroData();
+  }, []);
+
+  if (!heroData) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+
+  let imageUrl = heroData?.imageid?.url || "";
+
+  if (imageUrl.includes(" ")) {
+    imageUrl = imageUrl.replace(/\s/g, "%20");
+  }
+
   return (
     <section className="relative w-full h-screen flex items-center justify-center text-white overflow-hidden">
 
@@ -17,34 +47,40 @@ export default function HeroSection() {
           ease: "easeInOut",
         }}
       >
-        <Image
-          src={wall}
-          alt="Hero background"
-          fill
-          priority
-          className="object-cover"
-        />
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt="Hero background"
+            fill
+            priority
+            className="object-cover"
+          />
+        ) : (
+          <div className="bg-gray-200 w-full h-full flex items-center justify-center">
+            <p className="text-gray-600">Image Not Found</p>
+          </div>
+        )}
       </motion.div>
 
-      <div className="absolute inset-0 bg-[#04413D]/70 " />
+      <div className="absolute inset-0 bg-[#04413D]/70" />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 text-center px-6 max-w-6xl top-16 navtext"
+        className="relative z-10 text-center px-6 max-w-6xl top-16"
       >
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-          Empowering Education Consultants Worldwide
+          {heroData.title || "Empowering Education Consultants Worldwide"}
         </h1>
 
         <p className="mt-6 text-sm md:text-lg text-gray-200 max-w-3xl mx-auto">
-          Amphlo helps partner consultancies place students in leading
-          universities across the globe with seamless support.
+          {heroData.description ||
+            "Amphlo helps partner consultancies place students in leading universities across the globe with seamless support."}
         </p>
 
-        <div className="mt-10 flex  gap-4 justify-center items-center">
-          <button className="px-8 py-3 border-2 w-fit border-[#4b7e7c] hover:bg-[#58a59f] hover:border-[#58a59f] rounded-lg font-medium transition-all duration-500 shadow-lg hover:scale-105 cursor-pointer">
+        <div className="mt-10 flex gap-4 justify-center items-center">
+          <button className="px-8 py-3 border-2 border-[#4b7e7c] hover:bg-[#58a59f] hover:border-[#58a59f] rounded-lg font-medium transition-all duration-500 shadow-lg hover:scale-105 cursor-pointer">
             Get Started
           </button>
 

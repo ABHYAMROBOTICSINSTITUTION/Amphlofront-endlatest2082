@@ -17,7 +17,7 @@ export default function Navbar() {
     { name: "About Us", path: "/about" },
     { name: "Countries", path: "/countries" },
     { name: "Universities", path: "/universities" },
-    { name: "Partner With Us", path: "/partner-with-us" },
+    { name: "Partner With Us", path: "/partnerwithus" },
     { name: "Book an Appointment", path: "/enquiry" },
   ]
 
