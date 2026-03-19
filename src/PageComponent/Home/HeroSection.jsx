@@ -12,7 +12,7 @@ export default function HeroSection() {
     const getHeroData = async () => {
       try {
         const data = await fetchData("hero-section");
-        setHeroData(data);
+        setHeroData(data[0]); 
       } catch (error) {
         console.error("Error fetching hero data:", error);
       }
@@ -29,15 +29,15 @@ export default function HeroSection() {
     );
   }
 
-  let imageUrl = heroData?.imageid?.url || "";
+  const imageurl = heroData.imageid?.imageUrl || ""
 
-  if (imageUrl.includes(" ")) {
-    imageUrl = imageUrl.replace(/\s/g, "%20");
-  }
+
+
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center text-white overflow-hidden">
 
+      {/* Background Image */}
       <motion.div
         className="absolute inset-0"
         animate={{ scale: [1, 1.1, 1] }}
@@ -47,9 +47,10 @@ export default function HeroSection() {
           ease: "easeInOut",
         }}
       >
-        {imageUrl ? (
+        {heroData?.imageid?.imageUrl ? (
           <Image
-            src={imageUrl}
+            // src={encodeURI(heroData.imageid.imageUrl)}
+            src={imageurl}
             alt="Hero background"
             fill
             priority
@@ -62,8 +63,10 @@ export default function HeroSection() {
         )}
       </motion.div>
 
+      {/* Overlay */}
       <div className="absolute inset-0 bg-[#04413D]/70" />
 
+      {/* Hero Content */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -75,7 +78,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="mt-6 text-sm md:text-lg text-gray-200 max-w-3xl mx-auto">
-          {heroData.description ||
+          {heroData.subTitle ||
             "Amphlo helps partner consultancies place students in leading universities across the globe with seamless support."}
         </p>
 
