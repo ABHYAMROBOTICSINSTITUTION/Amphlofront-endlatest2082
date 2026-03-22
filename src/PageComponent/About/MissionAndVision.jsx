@@ -38,7 +38,7 @@ export default function MissionAndVision() {
   };
 
   return (
-    <section className="py-24 overflow-hidden w-full bg-gray-100 flex mx-auto h-full">
+    <section className="py-24 overflow-hidden w-full bg-gray-100 flex mx-auto h-full navtext">
       <motion.div
         className="max-w-7xl mx-auto px-6 space-y-32"
         variants={containerVariants}

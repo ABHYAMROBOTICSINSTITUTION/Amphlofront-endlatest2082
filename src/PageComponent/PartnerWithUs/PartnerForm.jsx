@@ -134,7 +134,7 @@ const countryOptions = [
 export default function PartnerForm() {
   return (
     <div className="w-full min-h-screen bg-[#04413D]/20 flex  flex-col  mx-auto py-10 px-4">
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 navtext">
         <h1 className="text-5xl font-bold text-[#04413D] mb-2">
           Become a Partner
         </h1>
@@ -143,164 +143,160 @@ export default function PartnerForm() {
         </p>
       </div>
 
-     
+      <div className=" w-11/12 mx-auto flex bg-white rounded-2xl shadow-lg p-8">
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            whatsappNumber: "",
+            companyName: "",
+            officialEmailId: "",
+            companyAddress: "",
+            country: "",
+          }}
+          validationSchema={PartnerSchema}
+          onSubmit={(values, { resetForm, setSubmitting }) => {
+            try {
+              console.log("Partner Form Submitted", values);
 
+              toast.success(
+                "Application submitted successfully! We'll get back to you soon."
+              );
 
-        <div className=" w-11/12 mx-auto flex bg-white rounded-2xl shadow-lg p-8">
-          <Formik
-            initialValues={{
-              firstName: "",
-              lastName: "",
-              email: "",
-              phoneNumber: "",
-              whatsappNumber: "",
-              companyName: "",
-              officialEmailId: "",
-              companyAddress: "",
-              country: "",
-            }}
-            validationSchema={PartnerSchema}
-            onSubmit={(values, { resetForm, setSubmitting }) => {
-              try {
-                console.log("Partner Form Submitted", values);
+              resetForm();
 
-                toast.success(
-                  "Application submitted successfully! We'll get back to you soon."
-                );
-
-                resetForm();
-
-                setTimeout(() => {
-                  setSubmitting(false);
-                }, 500);
-              } catch (error) {
-                console.error("Submission error:", error);
-                toast.error("Submission failed. Please try again.");
+              setTimeout(() => {
                 setSubmitting(false);
-              }
-            }}
-          >
-            {({ handleSubmit, isSubmitting, values, setFieldValue }) => (
-              <Form onSubmit={handleSubmit} className="flex flex-col w-full gap-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {formFields.map((field, index) => (
-                    <div key={index} className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-700">
-                        {field.label}{" "}
-                        {field.required && (
-                          <span className="text-red-500">*</span>
-                        )}
-                      </label>
-                      <Field
-                        name={field.name}
-                        type={field.type}
-                        placeholder={field.placeholder}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04413D] focus:border-transparent transition duration-200"
-                      />
-                      <ErrorMessage
-                        name={field.name}
-                        component="div"
-                        className="text-red-500 text-xs mt-1"
-                      />
-                    </div>
-                  ))}
-
-                  <div className="flex flex-col gap-2">
+              }, 500);
+            } catch (error) {
+              console.error("Submission error:", error);
+              toast.error("Submission failed. Please try again.");
+              setSubmitting(false);
+            }
+          }}
+        >
+          {({ handleSubmit, isSubmitting, values, setFieldValue }) => (
+            <Form
+              onSubmit={handleSubmit}
+              className="flex flex-col w-full gap-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {formFields.map((field, index) => (
+                  <div key={index} className="flex flex-col gap-2">
                     <label className="text-sm font-medium text-gray-700">
-                      Country <span className="text-red-500">*</span>
+                      {field.label}{" "}
+                      {field.required && (
+                        <span className="text-red-500">*</span>
+                      )}
                     </label>
                     <Field
-                      as="select"
-                      name="country"
+                      name={field.name}
+                      type={field.type}
+                      placeholder={field.placeholder}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04413D] focus:border-transparent transition duration-200"
-                    >
-                      {countryOptions.map((option, idx) => (
-                        <option key={idx} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </Field>
+                    />
                     <ErrorMessage
-                      name="country"
+                      name={field.name}
                       component="div"
                       className="text-red-500 text-xs mt-1"
                     />
                   </div>
-                </div>
+                ))}
 
-                <div className="flex flex-col gap-2 mt-2">
+                <div className="flex flex-col gap-2">
                   <label className="text-sm font-medium text-gray-700">
-                    Company Address <span className="text-red-500">*</span>
+                    Country <span className="text-red-500">*</span>
                   </label>
                   <Field
-                    as="textarea"
-                    name="companyAddress"
-                    rows="4"
-                    placeholder="Street address, city, state/province, postal code"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04413D] focus:border-transparent transition duration-200 resize-none"
-                  />
+                    as="select"
+                    name="country"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04413D] focus:border-transparent transition duration-200"
+                  >
+                    {countryOptions.map((option, idx) => (
+                      <option key={idx} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </Field>
                   <ErrorMessage
-                    name="companyAddress"
+                    name="country"
                     component="div"
                     className="text-red-500 text-xs mt-1"
                   />
                 </div>
+              </div>
 
-                <ErrorMessage
-                  name="firstName"
-                  render={() => (
-                    <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg mt-4">
-                      <p className="text-sm text-yellow-700">
-                        Please fill in all required fields correctly before
-                        submitting.
-                      </p>
-                    </div>
-                  )}
+              <div className="flex flex-col gap-2 mt-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Company Address <span className="text-red-500">*</span>
+                </label>
+                <Field
+                  as="textarea"
+                  name="companyAddress"
+                  rows="4"
+                  placeholder="Street address, city, state/province, postal code"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04413D] focus:border-transparent transition duration-200 resize-none"
                 />
+                <ErrorMessage
+                  name="companyAddress"
+                  component="div"
+                  className="text-red-500 text-xs mt-1"
+                />
+              </div>
 
-                <div className="flex justify-center mt-6">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="px-4 py-3 bg-[#04413D] text-white font-semibold rounded-lg hover:bg-white hover:text-[#04413D] focus:outline-none focus:ring-2 hover:border hover:border- focus:ring-offset-2 transition duration-500 disabled:opacity-50 disabled:cursor-not-allowed w-fit cursor-pointer "
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center">
-                        <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                        Submitting...
-                      </span>
-                    ) : (
-                      "Submit Application"
-                    )}
-                  </button>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
+              <ErrorMessage
+                name="firstName"
+                render={() => (
+                  <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg mt-4">
+                    <p className="text-sm text-yellow-700">
+                      Please fill in all required fields correctly before
+                      submitting.
+                    </p>
+                  </div>
+                )}
+              />
 
-       
-
-     
+              <div className="flex justify-center mt-6">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="px-4 py-3 bg-[#04413D] text-white font-semibold rounded-lg hover:bg-white hover:text-[#04413D] focus:outline-none focus:ring-2 hover:border hover:border- focus:ring-offset-2 transition  disabled:opacity-50 disabled:cursor-not-allowed w-fit cursor-pointer duration-500"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Submitting...
+                    </span>
+                  ) : (
+                    "Submit Application"
+                  )}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 }

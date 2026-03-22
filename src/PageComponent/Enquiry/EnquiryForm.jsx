@@ -36,7 +36,7 @@ export default function EnquiryForm() {
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4 md:px-12">
 
         <div>
-          <div className="max-w-5xl mx-auto p-6 md:p-6 rounded-xl">
+          <div className="max-w-5xl mx-auto p-6 md:p-6 rounded-xl navtext">
 
             <h2 className="text-2xl md:text-3xl font-bold text-center text-[#04413D] mb-8">
               Book an Appointment

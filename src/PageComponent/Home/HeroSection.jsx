@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { fetchData } from "@/lib/page";
+import Loading from "@/Global/Loading";
 
 export default function HeroSection() {
   const [heroData, setHeroData] = useState(null);
@@ -24,7 +25,7 @@ export default function HeroSection() {
   if (!heroData) {
     return (
       <div className="h-screen flex items-center justify-center">
-        Loading...
+        <Loading/>
       </div>
     );
   }
@@ -37,7 +38,6 @@ export default function HeroSection() {
   return (
     <section className="relative w-full h-screen flex items-center justify-center text-white overflow-hidden">
 
-      {/* Background Image */}
       <motion.div
         className="absolute inset-0"
         animate={{ scale: [1, 1.1, 1] }}
@@ -63,10 +63,8 @@ export default function HeroSection() {
         )}
       </motion.div>
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-[#04413D]/70" />
 
-      {/* Hero Content */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

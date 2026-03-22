@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { fetchData } from "@/lib/page";
-import background from "../../../public/amphlo.jpg";
+import background from "../../../public/footer-bg.png";
 
 export default function GetInTouch() {
   const [touchData, setTouchData] = useState(null);
@@ -75,7 +75,7 @@ export default function GetInTouch() {
 
       <div className="absolute inset-0 bg-[#04413D]/30" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 gap-6">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 gap-6 navtext">
         <h2 className="text-4xl md:text-5xl font-bold text-[#04413D]">
           {title} <span className="text-white">With Us</span>
         </h2>

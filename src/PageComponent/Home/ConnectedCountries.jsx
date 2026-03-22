@@ -13,7 +13,7 @@ export default function ConnectedCountries() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="w-full lg:w-1/2 flex flex-col items-start gap-6 text-left"
+          className="w-full lg:w-1/2 flex flex-col items-start gap-6 text-left navtext"
         >
           <h1 className="text-4xl md:text-5xl font-semibold text-[#04413D] leading-tight">
             Countries We Are <br /> Connected With
