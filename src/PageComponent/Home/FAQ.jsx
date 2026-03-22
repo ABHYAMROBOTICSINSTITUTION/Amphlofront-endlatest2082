@@ -74,7 +74,7 @@ export default function FAQ() {
   }
 
   return (
-    <div className="bg-linear-to-b from-[#04413D]/50 to-white min-h-full flex flex-col items-center py-16 px-6">
+    <div className="bg-linear-to-b from-[#04413D]/30 to-white min-h-full flex flex-col items-center py-16 px-6">
       
       <div className="text-center mb-10 navtext">
         <h1 className="text-4xl font-bold text-[#04413D]">
