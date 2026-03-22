@@ -31,6 +31,7 @@ export default function ServicesAndOffering() {
     <div className="min-h-screen bg-white flex items-start justify-center py-12 mx-auto w-full">
       <div className="w-11/12 md:w-10/12 mx-auto flex flex-col md:items-center gap-3 navtext">
         
+        
         <h1 className="text-5xl font-semibold text-[#04413D] text-center">
           Amphlo Services & Offerings
         </h1>
