@@ -18,7 +18,7 @@ export default function OurPartner() {
   return (
     <section className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-12 text-center navtext tracking-tight">
-        <h2 className="text-5xl font-bold text-[#04413D] mb-4">Amphlo's Eminent University Tie-Ups</h2>
+        <h2 className="text-5xl font-bold text-[#04413D] mb-4">Amphlo's Eminent <span className="text-[#FDC653]">University Tie-Ups</span></h2>
         <p className="text-gray-600">Powering B2B success across global markets.</p>
       </div>
 

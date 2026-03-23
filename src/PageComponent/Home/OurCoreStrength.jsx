@@ -21,7 +21,7 @@ export default function OurCoreStrength() {
       <div className="w-11/12 mx-auto grid md:grid-cols-2 gap-16 items-center navtext">
         
         <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-bold text-[#04413D]">
+          <h2 className="text-5xl font-bold text-[#04413D]">
             Our Core Strengths
           </h2>
           <p className="text-gray-500 mb-4">Client relationship management, strategic consulting, and B2B growth solutions.</p>
@@ -30,7 +30,7 @@ export default function OurCoreStrength() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="border-b rounded-xl p-6 shadow-md shadow-[#90d3cf] cursor-pointer hover:scale-105 transition-all ease-in-out duration-500"
+                className="border-b rounded-xl p-6 shadow-md shadow-[#e4c88a] cursor-pointer hover:scale-105 transition-all ease-in-out duration-500"
               >
                 <div className="text-2xl sm:text-3xl font-bold text-[#04413D]">
                   {inView && (

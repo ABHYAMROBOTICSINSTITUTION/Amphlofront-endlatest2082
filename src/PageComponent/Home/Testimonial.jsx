@@ -46,14 +46,14 @@ const reviews = [
 const TestimonialCard = ({ review }) => {
   return (
     <div className="relative w-[50vh] sm:w-[320px] md:w-[60vh] lg:w-[70vh] mx-2 sm:mx-3 md:mx-4 mt-6 mb-4 group shrink-0">
-      <div className="bg-[#04413D]/40 rounded-lg p-3 sm:p-4 pt-2 sm:pt-6 md:pt-24 lg:pt-26 shadow-lg border-l-2 border-t-2 border-[#04413D] h-[30vh] md:h-[30vh]  w-full">
+      <div className="bg-[#04413D]/40 rounded-lg p-3 sm:p-4 pt-2 sm:pt-24 md:pt-24 lg:pt-26 shadow-lg border-l-2 border-t-2 border-[#04413D] h-[30vh] md:h-[30vh]  w-full">
         <p className="text-white text-xs sm:text-sm md:text-base line-clamp-4 italic">
           "{review.description}"
         </p>
       </div>
 
       <div className="absolute -top-6 left-0 sm:-top-8 md:-top-10 flex items-center w-[90%]">
-        <div className="bg-[#04413D] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-tr-[20px] sm:rounded-tr-[30px] shadow-md flex flex-col w-[40vh] relative">
+        <div className="bg-[#04413D] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-tr-[20px] sm:rounded-tr-[30px] shadow-md flex flex-col md:w-[40vh] w-[25vh] relative">
           <h3 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg tracking-wide leading-tight uppercase">
             {review.clientname}
           </h3>
@@ -62,7 +62,7 @@ const TestimonialCard = ({ review }) => {
 
           <div className="flex mt-1">
             {[...Array(review.rating)].map((_, i) => (
-              <span key={i} className="text-yellow-400 text-[10px] sm:text-xs">
+              <span key={i} className="text-[#FDC653] text-[10px] sm:text-xs">
                 ★
               </span>
             ))}
@@ -70,7 +70,7 @@ const TestimonialCard = ({ review }) => {
         </div>
 
         <div className="absolute -right-8 sm:-right-10 md:-right-16 -top-8  md:-top-1">
-          <div className="relative size-32 md:size-24 rounded-full border-2 sm:border-4 border-white shadow-lg overflow-hidden bg-[#04413D]/20">
+          <div className="relative size-22 md:size-24 rounded-full border-2 sm:border-4 border-[#FDC653] shadow-lg overflow-hidden bg-[#04413D]/20">
             <Image
               src={review.image}
               alt="image"

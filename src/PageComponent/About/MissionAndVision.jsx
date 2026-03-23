@@ -70,7 +70,7 @@ export default function MissionAndVision() {
             </motion.div>
 
             <motion.div className="flex-1 space-y-6" variants={itemVariants}>
-              <div className="inline-block px-4 py-1 rounded-full bg-[#04413D]/10 text-[#04413D] text-sm font-bold uppercase tracking-widest">
+              <div className="inline-block px-4 py-1 rounded-full bg-[#FDC653]/30 text-[#04413D] text-sm font-bold uppercase tracking-widest">
                 {item.title}
               </div>
               <h2 className="text-2xl lg:text-4xl  font-bold text-[#04413D] leading-tight">

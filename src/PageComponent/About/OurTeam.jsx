@@ -97,7 +97,7 @@ export default function OurTeam() {
                 <h3 className="text-xl font-bold text-[#04413D] mb-1">
                   {member.name}
                 </h3>
-                <p className="text-sm font-semibold text-emerald-600 mb-2 uppercase tracking-wider">
+                <p className="text-sm font-semibold text-[#FDC653] mb-2 uppercase tracking-wider">
                   {member.position}
                 </p>
                 

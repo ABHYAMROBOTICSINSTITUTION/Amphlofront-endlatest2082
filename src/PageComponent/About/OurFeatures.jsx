@@ -71,7 +71,7 @@ export default function OurFeatures() {
                 <ul className="space-y-2 text-start">
                   {feature.points.map((point, pIdx) => (
                     <li key={pIdx} className="text-[10px] sm:text-sm opacity-90 font-medium flex items-center gap-3">
-                      <span className='text-xs'> <FaLocationArrow /></span> {point}
+                      <span className='text-xs  text-[#FDC653]'> <FaLocationArrow /></span> {point}
                     </li>
                   ))}
                 </ul>
@@ -86,7 +86,7 @@ export default function OurFeatures() {
           {visibleCount < allFeatures.length ? (
             <button 
               onClick={showMore}
-              className='bg-[#04413D]/70 text-white px-3 py-2 rounded-2xl text-lg font-medium cursor-pointer hover:bg-[#04413D] transition-all duration-500 ease-in-out hover:scale-105 shadow-md'
+              className='bg-[#04413D] text-[#FDC653] px-3 py-2 rounded-2xl text-md font-medium cursor-pointer hover:bg-[#04413D]/50 transition-all duration-500 ease-in-out hover:scale-105 shadow-md'
             >
               View More
             </button>

@@ -52,7 +52,7 @@ export default function AboutOurBusiness() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsExpanded(!isExpanded)}
-            className="bg-[#04413D] hover:bg-[#04413D]/80 text-white font-bold py-3 px-10 rounded-xl w-fit transition-all shadow-lg cursor-pointer"
+            className="bg-[#FDC653] hover:bg-[#FDC653]/80 text-black font-bold py-3 px-10 rounded-xl w-fit transition-all shadow-lg cursor-pointer"
           >
             {isExpanded ? "Show Less" : "Learn More"}
           </motion.button>

@@ -112,7 +112,7 @@ export default function CrmContent() {
         </div>
 
         <div className="flex flex-col gap-6 text-center md:text-left navtext">
-          <span className="text-white font-semibold tracking-wider uppercase text-xs md:text-sm">
+          <span className="text-[#FDC653] font-semibold tracking-wider uppercase text-xs md:text-sm">
             {title}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">

@@ -82,7 +82,7 @@ export default function Footer() {
                 className="bg-transparent outline-none text-sm flex-1"
               />
 
-              <button className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition">
+              <button className="bg-[#FDC653] text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-[#f6d07e] cursor-pointer transition">
                 Subscribe
               </button>
             </div>

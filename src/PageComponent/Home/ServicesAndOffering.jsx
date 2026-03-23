@@ -33,7 +33,7 @@ export default function ServicesAndOffering() {
         
         
         <h1 className="text-5xl font-semibold text-[#04413D] text-center">
-          Amphlo Services & Offerings
+          Amphlo <span className='text-[#FDC653]'>Services & Offerings</span>
         </h1>
         
         <p className="text-center text-sm text-gray-600 max-w-2xl">
@@ -49,7 +49,7 @@ export default function ServicesAndOffering() {
               className={`rounded-4xl py-2 px-6 text-xl font-medium cursor-pointer transition-all border-2 capitalize ${
                 activeTab === key 
                 ? 'bg-[#04413D] text-white border-[#04413D]' 
-                : 'bg-white border-[#04413D] text-[#04413D]'
+                : 'bg-white border-[#FDC653] text-[#04413D]'
               }`}
             >
               For {key}

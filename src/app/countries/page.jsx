@@ -197,7 +197,7 @@ export default function CountriesPage() {
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                       selectedCategory === category
-                        ? 'bg-white text-[#04413D] shadow-sm'
+                        ? 'bg-[#FDC653]/20 text-[#04413D] shadow-sm'
                         : 'text-gray-500 hover:text-[#04413D]'
                     }`}
                   >
@@ -264,7 +264,7 @@ export default function CountriesPage() {
                 
                 <div className="flex flex-wrap gap-2 top-4 left-4 absolute">
                   {country.categories.map((cat, i) => (
-                    <span key={i} className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/90 text-[#04413D] font-bold">
+                    <span key={i} className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#FDC653]/30 text-white font-bold">
                       {cat}
                     </span>
                   ))}
@@ -284,7 +284,7 @@ export default function CountriesPage() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {country.universities.slice(0, 3).map((uni, idx) => (
-                        <span key={idx} className="text-xs px-2 py-1 bg-[#04413D]/20 rounded-md text-gray-600">
+                        <span key={idx} className="text-xs px-2 py-1 bg-[#FDC653]/20 rounded-md text-gray-600">
                           {uni.name}
                         </span>
                       ))}
